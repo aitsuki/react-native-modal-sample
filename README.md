@@ -6,6 +6,8 @@ npm install
 npm run android
 ```
 
+https://github.com/user-attachments/assets/47083b0b-9f2b-4c2b-abc6-f29b8c10d332
+
 This project demonstrates solutions for several challenging Modal adaptation scenarios, using concise and efficient code examples:
 
 - Edge-to-Edge Compatibility for Android 15:
