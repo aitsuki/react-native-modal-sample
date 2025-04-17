@@ -1,46 +1,47 @@
-import { Pressable } from "react-native";
+import { View } from "react-native";
 import Animated, {
   interpolate,
   useDerivedValue,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Dialog, DialogProps } from "./dialog";
 import { useReanimatedKeyboardAnimation } from "../hooks/keyboard";
+import { Dialog, DialogProps } from "./dialog";
 
-type CenterDialogProps = DialogProps;
+type BottomDialogProps = DialogProps;
 
-const CenterDialog = ({ children, ...props }: CenterDialogProps) => {
+const BottomDialog = ({ children, ...props }: BottomDialogProps) => {
   const insets = useSafeAreaInsets();
   const { progress } = useReanimatedKeyboardAnimation();
 
   const paddingBottom = useDerivedValue(() => {
-    return interpolate(progress.value, [0, 1], [insets.bottom + 24, 24]);
+    return interpolate(progress.value, [0, 1], [insets.bottom, 0]);
   });
 
   return (
     <Dialog {...props}>
-      <Animated.View
+      <View
         style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
+          justifyContent: "flex-end",
+          alignItems: "stretch",
           paddingTop: insets.top + 24,
-          paddingBottom: paddingBottom,
         }}
       >
-        <Pressable
+        <Animated.View
           style={{
             backgroundColor: "white",
-            borderRadius: 24,
-            padding: 24,
-            width: "80%",
+            borderTopStartRadius: 24,
+            borderTopEndRadius: 24,
+            paddingTop: 24,
+            paddingHorizontal: 24,
+            paddingBottom: paddingBottom,
           }}
         >
           {children}
-        </Pressable>
-      </Animated.View>
+        </Animated.View>
+      </View>
     </Dialog>
   );
 };
 
-export { CenterDialog, CenterDialogProps };
+export { BottomDialog, BottomDialogProps };
