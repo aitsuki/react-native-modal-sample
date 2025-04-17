@@ -28,6 +28,7 @@ const BottomDialog = ({ children, ...props }: BottomDialogProps) => {
         }}
       >
         <Animated.View
+          onStartShouldSetResponder={() => true}
           style={{
             backgroundColor: "white",
             borderTopStartRadius: 24,

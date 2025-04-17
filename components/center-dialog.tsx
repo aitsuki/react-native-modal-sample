@@ -1,11 +1,11 @@
-import { Pressable } from "react-native";
 import Animated, {
   interpolate,
   useDerivedValue,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Dialog, DialogProps } from "./dialog";
 import { useReanimatedKeyboardAnimation } from "../hooks/keyboard";
+import { Dialog, DialogProps } from "./dialog";
+import { View } from "react-native";
 
 type CenterDialogProps = DialogProps;
 
@@ -28,7 +28,8 @@ const CenterDialog = ({ children, ...props }: CenterDialogProps) => {
           paddingBottom: paddingBottom,
         }}
       >
-        <Pressable
+        <View
+          onStartShouldSetResponder={() => true}
           style={{
             backgroundColor: "white",
             borderRadius: 24,
@@ -37,7 +38,7 @@ const CenterDialog = ({ children, ...props }: CenterDialogProps) => {
           }}
         >
           {children}
-        </Pressable>
+        </View>
       </Animated.View>
     </Dialog>
   );
