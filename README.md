@@ -1,20 +1,9 @@
 # React Native Modal Sample
 
+如果是 windows 用户，先按照此方式解决路径长度限制： https://kirillzyusko.github.io/react-native-keyboard-controller/docs/troubleshooting#filename-longer-than-260-characters
+
 ```shell
 npm install
-# run npm start on next time
+npm start
 npm run android
 ```
-
-https://github.com/user-attachments/assets/47083b0b-9f2b-4c2b-abc6-f29b8c10d332
-
-This project demonstrates solutions for several challenging Modal adaptation scenarios, using concise and efficient code examples:
-
-- Edge-to-Edge Compatibility for Android 15:
-  Addresses the complexities of adapting Modals to Android 15's edge-to-edge display feature.
-
-- Scrollable Modal Content:
-  Provides examples of implementing scrollable content within Modals, ensuring proper functionality and user experience.
-
-- Modals with Input Fields:
-  Showcases how to effectively incorporate input fields into Modals, handling keyboard interactions and layout adjustments.
